@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banani DOHS | Luxury Residence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background: #fff; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* Hero overlay */
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
+    }
+
+    /* Section divider line */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .section-title::before,
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #b89b6a;
+    }
+
+    /* Gold accent */
+    .gold { color: #b89b6a; }
+    .bg-gold { background-color: #b89b6a; }
+    .border-gold { border-color: #b89b6a; }
+
+    /* Table row alternating */
+    .spec-table tr:nth-child(odd) { background: #f9f6f1; }
+
+    /* CTA buttons */
+    .btn-gold {
+      background: #b89b6a;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-gold:hover { background: #9a7e52; }
+
+    .btn-outline-gold {
+      border: 2px solid #b89b6a;
+      color: #b89b6a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-outline-gold:hover { background: #b89b6a; color: #fff; }
+
+    /* Image hover zoom */
+    .img-zoom { overflow: hidden; }
+    .img-zoom img { transition: transform 0.4s ease; }
+    .img-zoom:hover img { transform: scale(1.04); }
+
+    /* Navbar */
+    .navbar { background: #1a1a1a; }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <nav class="navbar py-3 px-6 flex items-center justify-between sticky top-0 z-50">
+    <div class="text-white font-bold tracking-widest text-sm uppercase" style="font-family:'Montserrat',sans-serif;">
+      BANANI DOHS &nbsp;|&nbsp; <span class="gold">2750 SQ. FT.</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-gray-300 text-xs uppercase tracking-widest hidden sm:inline">Call for Inquiry</span>
+      <a href="tel:+8801711523435" class="bg-gold text-white text-xs font-bold px-4 py-2 rounded tracking-wider hover:bg-yellow-700 transition">
+        +8801711523435
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="relative h-72 sm:h-96 md:h-[420px] flex items-center justify-center"
+    style="background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80') center/cover no-repeat;">
+    <div class="text-center px-6">
+      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-3 drop-shadow-lg serif">
+        WELCOME HOME TO<br/>UNMATCHED LUXURY
+      </h1>
+      <p class="text-gray-200 text-xs sm:text-sm tracking-[0.22em] uppercase font-medium">
+        Modern 2750 Sq. Ft. Residence in Prestigious Banani DOHS.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== LIVING SECTION ===== -->
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <h2 class="section-title text-xl sm:text-2xl font-bold text-gray-800 mb-8 serif">
+      Spacious, Sun-Drenched Open Living
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <!-- Large left image -->
+      <div class="img-zoom rounded overflow-hidden shadow-md">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80"
+             alt="Primary Living Space" class="w-full h-56 md:h-72 object-cover"/>
+      </div>
+      <!-- Right: two stacked items -->
+      <div class="flex flex-col gap-4">
+        <!-- Small image + desc -->
+        <div class="flex flex-col gap-3">
+          <div class="img-zoom rounded overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80"
+                 alt="Media Lounge" class="w-full h-36 object-cover"/>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-gray-700 leading-relaxed">
+              Elegant primary living space featuring a stunning crystal chandelier and detailed wood accents.
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-3">
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-700 leading-relaxed">
+            A dedicated media lounge with a marble feature wall and cozy tufted seating.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DINING & KITCHEN SECTION ===== -->
+  <section class="bg-gray-50 py-12">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="section-title text-xl sm:text-2xl font-bold text-gray-800 mb-8 serif">
+        Sophisticated Dining &amp; Gourmet Kitchen
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <!-- Dining -->
+        <div class="sm:col-span-2 flex flex-col gap-3">
+          <div class="img-zoom rounded overflow-hidden shadow-md">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+                 alt="Dining Area" class="w-full h-52 object-cover"/>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-700 leading-relaxed">
+            An integrated dining experience with a modern granite-top kitchen island and pendant lighting.
+          </p>
+        </div>
+        <!-- Kitchen -->
+        <div class="flex flex-col gap-3">
+          <div class="img-zoom rounded overflow-hidden shadow-md">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80"
+                 alt="Kitchen" class="w-full h-52 object-cover"/>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-700 leading-relaxed">
+            Fully equipped kitchen with warm wood cabinetry, built-in range, and large refrigerator.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEDROOMS SECTION ===== -->
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <h2 class="section-title text-xl sm:text-2xl font-bold text-gray-800 mb-8 serif">
+      3 Your Tranquil Sanctuary
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Master Bedroom -->
+      <div class="flex flex-col gap-3">
+        <div class="img-zoom rounded overflow-hidden shadow-md">
+          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=80"
+               alt="Master Bedroom" class="w-full h-56 object-cover"/>
+        </div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-700 leading-relaxed">
+          A spacious master retreat with a king-sized bed, integrated lounge seating, and large windows.
+        </p>
+      </div>
+      <!-- Second Bedroom -->
+      <div class="flex flex-col gap-3">
+        <div class="img-zoom rounded overflow-hidden shadow-md">
+          <img src="https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=700&q=80"
+               alt="Second Bedroom" class="w-full h-56 object-cover"/>
+        </div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-700 leading-relaxed">
+          An expansive second bedroom featuring a full wall of floor-to-ceiling mirrored closets, maximizing light and space.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPECIFICATIONS TABLE ===== -->
+  <section class="max-w-5xl mx-auto px-4 pb-10">
+    <table class="spec-table w-full text-sm border border-gray-200 rounded overflow-hidden">
+      <tbody>
+        <tr>
+          <td class="px-5 py-3 font-bold text-gray-700 w-1/4">Area:</td>
+          <td class="px-5 py-3 text-gray-600">2750 Sq. Ft.</td>
+          <td class="px-5 py-3 font-bold text-gray-700 w-1/4">Kitchen:</td>
+          <td class="px-5 py-3 text-gray-600">Built-in Kitchen + Dining Island</td>
+        </tr>
+        <tr>
+          <td class="px-5 py-3 font-bold text-gray-700">Total Rooms:</td>
+          <td class="px-5 py-3 text-gray-600">3 Bedrooms + 3 Bathrooms</td>
+          <td class="px-5 py-3 font-bold text-gray-700">Living Areas:</td>
+          <td class="px-5 py-3 text-gray-600">Two Distinct Lounges</td>
+        </tr>
+        <tr>
+          <td class="px-5 py-3 font-bold text-gray-700">Furnishings:</td>
+          <td class="px-5 py-3 text-gray-600">Fully Furnished &amp; Equipped</td>
+          <td class="px-5 py-3 font-bold text-gray-700">Security:</td>
+          <td class="px-5 py-3 text-gray-600">24/7 DOHS Security + Building CCTV</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== CTA FOOTER ===== -->
+  <section class="bg-gray-50 border-t border-gray-200 py-10">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+
+      <!-- Left: CTA Text + Buttons -->
+      <div class="flex-1">
+        <h2 class="serif text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+          READY TO MOVE-IN. SECURE YOUR SHOWING.
+        </h2>
+        <p class="text-sm text-gray-500 mb-6">This elegant home in Banani DOHS is available immediately.</p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <!-- Call Button -->
+          <a href="tel:+8801711523435"
+             class="btn-gold flex items-center gap-3 px-6 py-3 rounded text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 5a2 2 0 012-2h2.28a1 1 0 01.986.836l.658 3.953a1 1 0 01-.658 1.118l-1.18.394a11.003 11.003 0 004.994 4.994l.394-1.18a1 1 0 011.118-.658l3.953.658A1 1 0 0119 14.72V17a2 2 0 01-2 2C8.955 19 3 13.045 3 6V5z"/>
+            </svg>
+            <div>
+              <div class="text-[10px] tracking-widest uppercase opacity-80">Call Tanveer</div>
+              <div class="text-sm font-bold tracking-wide">+8801711523435</div>
+            </div>
+          </a>
+
+          <!-- Email Button -->
+          <a href="mailto:tanveer.ifad@gmail.com"
+             class="btn-gold flex items-center gap-3 px-6 py-3 rounded text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <div>
+              <div class="text-[10px] tracking-widest uppercase opacity-80">Email Inquiry</div>
+              <div class="text-sm font-bold tracking-wide">tanveer.ifad@gmail.com</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Map placeholder -->
+      <div class="w-full md:w-56 h-44 rounded overflow-hidden shadow-md border border-gray-200 flex-shrink-0">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.3!2d90.4167!3d23.7937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a0f4c2f3f3%3A0x3c3c3c3c3c3c3c3c!2sBanani+DOHS%2C+Dhaka!5e0!3m2!1sen!2sbd!4v1680000000000!5m2!1sen!2sbd"
+          class="w-full h-full border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Banani DOHS Location">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

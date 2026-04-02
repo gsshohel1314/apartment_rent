@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banani Luxury Apartments | Premium Rentals in Banani DOHS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .gold { color: #d4af77; }
+    .hero-bg {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), 
+                  url('YOUR-HERO-HOUSE-IMAGE.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero-bg min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+        LUXURY APARTMENTS<br>FOR RENT
+      </h1>
+      <p class="text-3xl text-[#d4af77] mb-8">Banani DOHS, Dhaka</p>
+      <p class="text-xl max-w-2xl mx-auto mb-12">
+        Fully Furnished Premium Apartments in Prime Location
+      </p>
+      <a href="#contact" 
+         class="inline-block bg-[#d4af77] text-black px-12 py-6 text-xl font-semibold rounded-3xl hover:scale-110 transition">
+        Contact / WhatsApp Now
+      </a>
+    </div>
+  </section>
+
+  <!-- 2. APARTMENT LIST -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold text-center mb-12 gold">Available Apartments</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="apartment-list">
+      <!-- JavaScript দিয়ে এখানে অ্যাপার্টমেন্ট দেখানো হবে -->
+    </div>
+  </section>
+
+  <!-- 3. FACILITIES -->
+  <section class="bg-zinc-900 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12 gold">Facilities & Amenities</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="bg-zinc-800 p-8 rounded-3xl">
+          <i class="fas fa-wifi text-5xl gold mb-4"></i>
+          <p class="text-xl">High-Speed WiFi</p>
+        </div>
+        <div class="bg-zinc-800 p-8 rounded-3xl">
+          <i class="fas fa-elevator text-5xl gold mb-4"></i>
+          <p class="text-xl">Lift / Elevator</p>
+        </div>
+        <div class="bg-zinc-800 p-8 rounded-3xl">
+          <i class="fas fa-car text-5xl gold mb-4"></i>
+          <p class="text-xl">Car Parking</p>
+        </div>
+        <div class="bg-zinc-800 p-8 rounded-3xl">
+          <i class="fas fa-shield-alt text-5xl gold mb-4"></i>
+          <p class="text-xl">24/7 Security</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GALLERY -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold text-center mb-12 gold">Photo Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="gallery">
+      <!-- Real images এখানে যোগ করবে -->
+    </div>
+  </section>
+
+  <!-- 5. LOCATION MAP -->
+  <section class="max-w-7xl mx-auto px-6 py-20 bg-zinc-900">
+    <h2 class="text-4xl font-bold text-center mb-8 gold">Prime Location</h2>
+    <p class="text-center text-xl mb-10">Banani DOHS, Dhaka</p>
+    <div class="bg-zinc-800 h-96 rounded-3xl flex items-center justify-center text-2xl text-zinc-500">
+      📍 Google Map Embed করা যাবে এখানে (পরে দিতে পারি)
+    </div>
+  </section>
+
+  <!-- 6. CONTACT -->
+  <section id="contact" class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <h2 class="text-4xl font-bold mb-8 gold">Get In Touch</h2>
+    <p class="text-2xl mb-10">For Rent, Price & Viewing Appointment</p>
+    
+    <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+      <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank"
+         class="flex items-center gap-4 bg-green-600 hover:bg-green-700 px-10 py-6 rounded-3xl text-2xl font-semibold transition">
+        <i class="fab fa-whatsapp text-4xl"></i>
+        WhatsApp Now
+      </a>
+      
+      <a href="tel:YOUR_PHONE_NUMBER" 
+         class="flex items-center gap-4 bg-white text-black hover:bg-zinc-200 px-10 py-6 rounded-3xl text-2xl font-semibold transition">
+        <i class="fas fa-phone text-4xl"></i>
+        Call Now
+      </a>
+    </div>
+    
+    <p class="mt-12 text-zinc-400">Serious inquiries only • Immediate Occupancy Available</p>
+  </section>
+
+  <footer class="bg-black py-10 text-center text-sm text-zinc-500">
+    © 2026 Banani Luxury Residences • Banani DOHS, Dhaka
+  </footer>
+
+  <script>
+    // ====== আপনার অ্যাপার্টমেন্টের তথ্য এখানে দিন ======
+    const apartments = [
+      {
+        id: 1,
+        title: "Apartment A-101",
+        size: "2750 Sq. Ft.",
+        rent: "Price on Request",
+        beds: 3,
+        baths: 3,
+        image: "apartment1.jpg"
+      },
+      {
+        id: 2,
+        title: "Apartment B-202",
+        size: "2600 Sq. Ft.",
+        rent: "Price on Request",
+        beds: 3,
+        baths: 3,
+        image: "apartment2.jpg"
+      },
+      // আরও অ্যাপার্টমেন্ট থাকলে এখানে যোগ করুন
+    ];
+
+    // Apartment List Render
+    function renderApartments() {
+      const container = document.getElementById('apartment-list');
+      container.innerHTML = apartments.map(apt => `
+        <div class="bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition">
+          <img src="${apt.image}" alt="${apt.title}" class="w-full h-64 object-cover">
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-3">${apt.title}</h3>
+            <div class="flex justify-between text-lg mb-4">
+              <span class="text-[#d4af77]">${apt.size}</span>
+              <span class="font-bold">${apt.rent}</span>
+            </div>
+            <div class="flex gap-6 text-zinc-300">
+              <div><i class="fas fa-bed"></i> ${apt.beds} Beds</div>
+              <div><i class="fas fa-bath"></i> ${apt.baths} Baths</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Gallery (Real ছবি যোগ করুন)
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      const images = [
+        "gallery1.jpg", "gallery2.jpg", "gallery3.jpg", 
+        "gallery4.jpg", "gallery5.jpg", "gallery6.jpg"
+      ];
+      
+      gallery.innerHTML = images.map(src => `
+        <img src="${src}" alt="Interior" 
+             class="rounded-2xl aspect-video object-cover hover:scale-105 transition cursor-pointer">
+      `).join('');
+    }
+
+    // Initialize
+    renderApartments();
+    renderGallery();
+  </script>
+</body>
+</html>
