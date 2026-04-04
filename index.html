@@ -7,10 +7,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    /* ── Base Typography ──────────────────────────────────
+       Body: Montserrat (sans-serif)
+       Headings (.serif, h1, h2, h3): Cormorant Garamond
+    ─────────────────────────────────────────────────────── */
     body { font-family: 'Montserrat', sans-serif; background: #fff; }
     h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
 
-    /* Section divider line */
+    /* ── Section Title with Side Lines ───────────────────
+       Creates a horizontal rule on both sides of the heading.
+       Uses ::before and ::after pseudo-elements.
+    ─────────────────────────────────────────────────────── */
     .section-title {
       display: flex;
       align-items: center;
@@ -18,29 +25,20 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
-
     .section-title::before,
     .section-title::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: #b89b6a;
+      background: #b89b6a; /* gold color */
     }
 
-    /* Gold accent */
-    .gold { 
-      color: #b89b6a; 
-    }
+    /* ── Gold Color Utilities ─────────────────────────── */
+    .gold { color: #b89b6a; }
+    .bg-gold { background-color: #b89b6a; }
+    .bg-gold:hover { background: #9a7e52; }
 
-    .bg-gold { 
-      background-color: #b89b6a; 
-    }
-
-    .bg-gold:hover { 
-      background: #9a7e52; 
-    }
-
-    /* CTA buttons */
+    /* ── CTA Button (Gold filled) ─────────────────────── */
     .btn-gold {
       background: #b89b6a;
       color: #fff;
@@ -49,39 +47,47 @@
       letter-spacing: 0.05em;
       transition: background 0.2s;
     }
+    .btn-gold:hover { background: #9a7e52; }
 
-    .btn-gold:hover { 
-      background: #9a7e52; 
-    }
-
-    /* Image hover zoom */
+    /* ── Image Hover Zoom Effect ──────────────────────── */
     .img-zoom { overflow: hidden; }
     .img-zoom img { transition: transform 0.4s ease; }
     .img-zoom:hover img { transform: scale(1.04); }
 
-    /* Navbar */
-    .navbar { 
-      background: #1a1a1a; 
-    }
+    /* ── Sticky Navbar ────────────────────────────────── */
+    .navbar { background: #1a1a1a; }
 
-    /* =============================================
-       SPEC TABLE
-       Desktop : label | value | label | value  (4 column)
-       Mobile  : label | value                  (2 column)
-    =============================================== */
+    /* ── Specifications Table ─────────────────────────────
+       Layout:
+         Desktop (>=640px): 2-column grid inside tbody.
+           Each visual row = 2 <tr> elements side by side:
+             .pair-a → left column
+             .pair-b → right column
+           Each <tr> has 2 <td>: label + value
 
-    /* Wrapper — tbody has been made into a grid container */
+         Mobile (<640px): tbody grid is disabled.
+           All 6 <tr> elements stack vertically (6 rows).
+
+       Structure:
+         <tbody>
+           <tr class="pair-a"> <td.label> <td.value> </tr>   ← left
+           <tr class="pair-b"> <td.label> <td.value> </tr>   ← right
+           ... (3 visual rows total = 6 <tr> elements)
+         </tbody>
+    ─────────────────────────────────────────────────────── */
     .spec-table {
       width: 100%;
       border-collapse: collapse;
       border-top: 1px solid #d1d5db;
     }
 
+    /* Desktop: 2-column grid — pair-a and pair-b sit side by side */
     .spec-table tbody {
       display: grid;
-      grid-template-columns: 1fr 1fr; /* 2 columns — one label|value pair each */
+      grid-template-columns: 1fr 1fr;
     }
 
+    /* Each row: flex layout so label and value sit inline */
     .spec-table tr {
       display: flex;
       border-bottom: 1px solid #d1d5db;
@@ -92,7 +98,7 @@
       border-right: none;
     }
 
-    /* Base style for all <td> */
+    /* All table cells */
     .spec-table td {
       padding: 10px 14px;
       font-size: 0.85rem;
@@ -100,47 +106,43 @@
       background: #fff;
     }
 
-    /* Label — bold, min-width to keep width fixed */
+    /* Label cell: fixed width so all values start at the same position */
     .spec-table td.label {
       font-weight: 700;
       color: #111827;
-      white-space: nowrap;
-      min-width: 110px;          /* The minimum width of the label column */
+      white-space: nowrap; /* prevent label from wrapping */
+      min-width: 110px;
       width: 140px;
       min-width: 140px;
-      flex-shrink: 0;
+      flex-shrink: 0; /* prevent shrinking in flex container */
     }
 
-    /* Value — will take up the remaining space. */
+    /* Value cell: takes up remaining space */
     .spec-table td.value {
       color: #374151;
       font-weight: 500;
       flex: 1;
     }
 
-    /* MOBILE (max-width: 639px) */
+    /* ── Spec Table: Mobile Overrides (<640px) ────────────
+      Disable the 2-column grid → each <tr> becomes a full-width row.
+      Result: 6 separate rows instead of 3 side-by-side pairs.
+    ─────────────────────────────────────────────────────── */
     @media (max-width: 639px) {
-
-      /* tbody grid closed → block layout */
       .spec-table tbody {
-        display: block;
+        display: block; /* disable grid */
       }
-
-      /* Set each <tr> full width, border correctly. */
       .spec-table tr,
       .spec-table tr.pair-b {
         display: flex;
-        border-right: none;      /* No need for right border on mobile */
+        border-right: none;
         border-bottom: 1px solid #d1d5db;
       }
-
-      /* Reduce label minimum width on mobile */
       .spec-table td.label {
         width: 120px;
         min-width: 90px;
         font-size: 12px;
       }
-
       .spec-table td.value {
         font-size: 12px;
       }
@@ -150,7 +152,10 @@
 
 <body class="text-gray-800">
 
-  <!-- ===== TOP NAVBAR ===== -->
+  <!-- ===== NAVBAR =====
+       Sticky top bar with property title (left) and call-to-action (right).
+       "Call for Inquiry" text is hidden on mobile to save space.
+  ===== -->
   <nav class="navbar py-3 px-6 flex items-center justify-between sticky top-0 z-50">
     <div class="text-white font-bold tracking-widest text-sm uppercase" style="font-family:'Montserrat',sans-serif;">
       BANANI DOHS &nbsp;|&nbsp; <span class="gold">2600 SQ. FT.</span>
@@ -163,7 +168,10 @@
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
+  <!-- ===== HERO SECTION =====
+       Full-width background image with dark gradient overlay.
+       Height is fixed at different breakpoints: h-72 / h-96 / h-[420px].
+  ===== -->
   <section class="relative h-72 sm:h-96 md:h-[420px] flex items-center justify-center"
     style="background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.6)), url('images/hero_1940.webp') center/cover no-repeat;">
     <div class="text-center px-6">
@@ -176,7 +184,11 @@
     </div>
   </section>
 
-  <!-- ===== LIVING SECTION ===== -->
+  <!-- ===== LIVING SECTION =====
+       Grid layout:
+         Desktop (md+): 3 columns — left image takes 2/3, right content takes 1/3
+         Mobile: single column, stacked
+  ===== -->
   <section class="max-w-5xl mx-auto px-4 py-12">
     <h2 class="section-title text-xl sm:text-2xl font-bold text-gray-800 mb-8 serif">
       Spacious, Sun-Drenched Open Living
@@ -184,13 +196,13 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 
-      <!-- Large left image — col-span-2 = 2/3 -->
+      <!-- Left: large primary image — spans 2/3 of the grid -->
       <div class="md:col-span-2 img-zoom rounded overflow-hidden shadow-md">
         <img src="images/living1_1942.webp"
              alt="Primary Living Space" class="w-full h-56 md:h-72 object-cover"/>
       </div>
 
-      <!-- Right col — col-span-1 = 1/3 -->
+      <!-- Right: description text + small secondary image + description text — spans 1/3 -->
       <div class="md:col-span-1 flex flex-col gap-4">
         <div class="flex flex-col gap-3">
           <div>
@@ -215,19 +227,30 @@
     </div>
   </section>
 
-  <!-- ===== DINING & KITCHEN SECTION ===== -->
+  <!-- ===== DINING & KITCHEN SECTION =====
+       Outer grid: 3 columns
+         Left group (col-span-2 = 2/3): contains Dining + Middle images
+         Right (col-span-1 = 1/3): Kitchen image
+
+       Inner grid (left group): 3 columns
+         Dining image: col-span-2 (2/3 of left group)
+         Middle image: col-span-1 (1/3 of left group) — portrait orientation
+
+       Mobile: all items stack vertically (single column)
+  ===== -->
   <section class="bg-gray-50 py-10 sm:py-12">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="section-title text-lg sm:text-2xl font-bold text-gray-800 mb-6 sm:mb-8 serif">
         Sophisticated Dining &amp; Gourmet Kitchen
       </h2>
 
+      <!-- Outer grid: [Dining+Middle = 2/3] [Kitchen = 1/3] -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
 
-        <!-- Left group: Dining + Middle — col-span-2 = 2/3 -->
+        <!-- Left group: Dining + Middle portrait — occupies 2/3 of outer grid -->
         <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
 
-          <!-- Dining — mobile: full width, desktop: col-span-2 -->
+          <!-- Dining image — occupies 2/3 of inner grid -->
           <div class="sm:col-span-2 flex flex-col gap-3">
             <div class="img-zoom rounded overflow-hidden shadow-md">
               <img src="images/kitchen1_1950.webp"
@@ -239,7 +262,7 @@
             </p>
           </div>
         
-          <!-- Middle — mobile: full width, desktop: col-span-1 -->
+          <!-- Middle portrait image — occupies 1/3 of inner grid -->
           <div class="sm:col-span-1 flex flex-col gap-3">
             <div class="img-zoom rounded overflow-hidden shadow-md">
               <img src="images/kitchen2_1945.webp"
@@ -250,7 +273,7 @@
         
         </div>
 
-        <!-- Kitchen — col-span-1 = 1/3 -->
+        <!-- Kitchen image — occupies 1/3 of outer grid -->
         <div class="sm:col-span-1 flex flex-col gap-3">
           <div class="img-zoom rounded overflow-hidden shadow-md">
             <img src="images/kitchen3_1947.webp"
@@ -266,13 +289,15 @@
     </div>
   </section>
 
-  <!-- ===== MASTER SUITE SECTION ===== -->
+  <!-- ===== MASTER SUITE SECTION =====
+       2-column equal grid on sm+, single column on mobile.
+  ===== -->
   <section class="max-w-5xl mx-auto px-4 py-12">
     <h2 class="section-title text-xl sm:text-2xl font-bold text-gray-800 mb-8 serif">
       Master Suite
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <!-- Master Bedroom -->
+      <!-- Master bedroom image + description -->
       <div class="flex flex-col gap-3">
         <div class="img-zoom rounded overflow-hidden shadow-md">
           <img src="images/master_suite1_1960.webp"
@@ -282,7 +307,8 @@
           A spacious master suite with a king-sized bed, integrated lounge seating, expansive wardrobe, and access to a large balcony.
         </p>
       </div>
-      <!-- Second Bedroom -->
+      
+      <!-- En-suite bathroom image + description -->
       <div class="flex flex-col gap-3">
         <div class="img-zoom rounded overflow-hidden shadow-md">
           <img src="images/master_suite2_1961.webp"
@@ -295,14 +321,16 @@
     </div>
   </section>
 
-  <!-- ===== BEDROOMS SECTION ===== -->
+  <!-- ===== ADDITIONAL BEDROOMS SECTION =====
+       2-column equal grid on sm+, single column on mobile.
+  ===== -->
   <section class="bg-gray-50 py-12">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="section-title text-xl sm:text-2xl font-bold text-gray-800 mb-8 serif">
         Additional Bedrooms
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <!-- Master Bedroom -->
+        <!-- Second bedroom -->
         <div class="flex flex-col gap-3">
           <div class="img-zoom rounded overflow-hidden shadow-md">
             <img src="images/additional_bedroom1_1954.webp"
@@ -312,7 +340,8 @@
             The inviting second bedroom with expansive built-in mirrored closets and large windows.
           </p>
         </div>
-        <!-- Second Bedroom -->
+        
+        <!-- Third bedroom -->
         <div class="flex flex-col gap-3">
           <div class="img-zoom rounded overflow-hidden shadow-md">
             <img src="images/additional_bedroom2_1956.webp"
@@ -326,11 +355,15 @@
     </div>
   </section>
 
-  <!-- ===== SPECIFICATIONS TABLE ===== -->
+  <!-- ===== SPECIFICATIONS TABLE =====
+       Uses a custom CSS grid approach instead of a standard HTML table layout.
+       See .spec-table CSS above for full explanation.
+       Each visual row = 2 <tr> elements: .pair-a (left) and .pair-b (right).
+  ===== -->
   <section class="max-w-5xl mx-auto px-4 pb-10 pt-10">
     <table class="spec-table">
       <tbody>
-        <!-- Visual Row 1 -->
+        <!-- Row 1 -->
         <tr class="pair-a">
           <td class="label">Area:</td>
           <td class="value">2600 Sq. Ft.</td>
@@ -340,7 +373,7 @@
           <td class="value">Built-in Kitchen + Dining Island</td>
         </tr>
 
-        <!-- Visual Row 2 -->
+        <!-- Row 2 -->
         <tr class="pair-a">
           <td class="label">Total Rooms:</td>
           <td class="value">3 bedrooms + 4 Bathrooms</td>
@@ -350,7 +383,7 @@
           <td class="value">Two Distinct Lounges</td>
         </tr>
 
-        <!-- Visual Row 3 -->
+        <!-- Row 3 -->
         <tr class="pair-a">
           <td class="label">Furnishings:</td>
           <td class="value">Fully Furnished &amp; Equipped</td>
@@ -363,11 +396,16 @@
     </table>
   </section>
 
-  <!-- ===== CTA FOOTER ===== -->
+  <!-- ===== CTA FOOTER =====
+       Two-column layout on md+:
+         Left: heading, subtitle, call + email buttons
+         Right: Google Maps embed
+       Single column on mobile (map goes below buttons).
+  ===== -->
   <section class="bg-gray-50 border-t border-gray-200 py-10">
     <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
 
-      <!-- Left: CTA Text + Buttons -->
+      <!-- Left: CTA text and action buttons -->
       <div class="flex-1">
         <h2 class="serif text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
           READY TO MOVE-IN. SECURE YOUR SHOWING.
@@ -375,7 +413,7 @@
         <p class="text-sm text-gray-500 mb-6">This elegant home in Banani DOHS is available immediately.</p>
 
         <div class="flex flex-col sm:flex-row gap-3">
-          <!-- Call Button -->
+          <!-- Phone call button -->
           <a href="tel:+8801704113344"
              class="btn-gold flex items-center gap-3 px-6 py-3 rounded text-sm">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -388,7 +426,7 @@
             </div>
           </a>
 
-          <!-- Email Button -->
+          <!-- Email inquiry button -->
           <a href="mailto:Rasel7136@ifadgroup.com"
              class="btn-gold flex items-center gap-3 px-6 py-3 rounded text-sm">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -403,7 +441,7 @@
         </div>
       </div>
 
-      <!-- Right: Map placeholder -->
+      <!-- Right: Google Maps embed — full width on mobile, fixed width on md+ -->
       <div class="w-full md:w-72 h-36 rounded overflow-hidden shadow-md border border-gray-200 flex-shrink-0">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.3!2d90.4167!3d23.7937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a0f4c2f3f3%3A0x3c3c3c3c3c3c3c3c!2sBanani+DOHS%2C+Dhaka!5e0!3m2!1sen!2sbd!4v1680000000000!5m2!1sen!2sbd"
