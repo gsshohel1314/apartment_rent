@@ -456,5 +456,80 @@
     </div>
   </section>
 
+  <!-- ====================== IMAGE PREVIEW MODAL ====================== -->
+  <div id="image-modal" class="hidden fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4">
+    <div class="relative max-w-6xl w-full max-h-[95vh]">
+      
+      <!-- Close Button -->
+      <button 
+        onclick="closeModal()" 
+        class="absolute -top-5 -right-5 bg-white/50 hover:bg-gray-100 text-gray-900 w-9 h-9 rounded-full flex items-center justify-center text-4xl font-light shadow-2xl transition-all z-10"
+      >
+        ×
+      </button>
+
+      <!-- Modal Image -->
+      <img 
+        id="modal-image" 
+        src="" 
+        alt="Luxury Residence Preview" 
+        class="w-full h-auto max-h-[90vh] object-contain rounded-xl shadow-2xl"
+      >
+    </div>
+  </div>
+
+  <!-- ====================== JAVASCRIPT ====================== -->
+  <script>
+    // Open Modal Function
+    function openModal(src) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-image');
+      
+      modalImg.src = src;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    // Close Modal Function
+    function closeModal() {
+      const modal = document.getElementById('image-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Add click event to all .img-zoom containers
+    document.addEventListener('DOMContentLoaded', function() {
+      const imageContainers = document.querySelectorAll('.img-zoom');
+      
+      imageContainers.forEach(container => {
+        container.style.cursor = 'zoom-in';
+        
+        container.addEventListener('click', function(e) {
+          const img = container.querySelector('img');
+          if (img && img.src) {
+            openModal(img.src);
+          }
+        });
+      });
+
+      // Close modal when clicking outside the image
+      const modal = document.getElementById('image-modal');
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "Escape") {
+        const modal = document.getElementById('image-modal');
+        if (!modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
