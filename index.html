@@ -156,15 +156,20 @@
        Sticky top bar with property title (left) and call-to-action (right).
        "Call for Inquiry" text is hidden on mobile to save space.
   ===== -->
-  <nav class="navbar py-3 px-6 flex items-center justify-between sticky top-0 z-50">
-    <div class="text-white font-bold tracking-widest text-sm uppercase" style="font-family:'Montserrat',sans-serif;">
-      BANANI DOHS &nbsp;|&nbsp; <span class="gold">2600 SQ. FT.</span>
+  <nav class="navbar py-3 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-50">
+    <div 
+      class="text-white font-bold uppercase whitespace-nowrap text-xs tracking-wider sm:text-sm sm:tracking-widest"
+      style="font-family:'Montserrat',sans-serif;"
+    >
+      BANANI DOHS <span class="opacity-40 mx-1">|</span> <span class="gold">2600 SQ. FT.</span>
     </div>
-    <div class="flex items-center gap-3 bg-gold text-white text-xs font-bold px-4 py-2 tracking-widest rounded transition">
-      <span class="font-semibold hidden sm:inline">Call for Inquiry</span>|
-      <a href="tel:+8801704113344">
-        +8801704113344
-      </a>
+ 
+    <div 
+      class="flex items-center gap-2 bg-gold text-white font-bold rounded transition ml-3 px-3 py-2 text-xs sm:px-4 sm:gap-3 whitespace-nowrap"
+    >
+      <span class="font-semibold hidden sm:inline tracking-widest">Call for Inquiry</span>
+      <span class="hidden sm:inline opacity-60">|</span>
+      <a href="tel:+8801704113344">+8801704113344</a>
     </div>
   </nav>
 
